@@ -1,4 +1,4 @@
-
+from django.contrib.sites.models import Site
 from django.core.cache import cache
 from hashlib import md5
 import logging
@@ -40,3 +40,9 @@ def cache_decorator(expiration=3 * 60):
         return news
 
     return wrapper
+
+
+@cache_decorator()
+def get_current_site():
+    site = Site.objects.get_current()
+    return site
