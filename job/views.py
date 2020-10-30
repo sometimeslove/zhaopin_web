@@ -12,7 +12,7 @@ from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
-from yihang_website.utils import cache, get_md5, get_blog_setting
+from yihang_website.utils import cache
 from django.shortcuts import get_object_or_404
 from job.models import Job, Category, Tag
 import logging
@@ -92,7 +92,7 @@ class IndexView(JobListView):
     link_type = 'i'
 
     def get_queryset_data(self):
-        job_list = Job.objects.filter(type='a', status='p')
+        job_list = Job.objects.filter(job_status='o', pub_status='p')
         return job_list
 
     def get_queryset_cache_key(self):

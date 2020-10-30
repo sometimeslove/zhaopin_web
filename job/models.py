@@ -15,7 +15,7 @@ class Job(models.Model):
         ('d', '草稿'),
         ('p', '发布'),
     )
-    JOB_STATUS = (
+    JOB_CHOICES = (
         ('o', '在招'),
         ('c', '关闭'),
     )
@@ -54,7 +54,7 @@ class Job(models.Model):
     full_part_flag = models.CharField('全职/兼职', max_length=10, default='0')
     pub_time = models.DateTimeField('发布时间', blank=True, null=True)
     pub_status = models.CharField('职位发布状态', max_length=1, choices=PUB_CHOICES, default='p')
-    job_status = models.CharField('职位招聘状态', max_length=1, choices=JOB_STATUS, default='o')
+    job_status = models.CharField('职位招聘状态', max_length=1, choices=JOB_CHOICES, default='o')
     salary_range = models.CharField('职位薪酬范围', max_length=1, choices=SALARY_RANGE, default='a')
     # author = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='作者', on_delete=models.CASCADE)
     job_sortorder = models.IntegerField('排序,数字越大越靠前', blank=False, null=False, default=0)

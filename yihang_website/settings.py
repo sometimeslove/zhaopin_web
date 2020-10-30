@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'accounts',
     'job',
     'company',
@@ -83,7 +84,7 @@ DATABASES = {
         'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST':os.environ.get('DJANGO_MYSQL_HOST'),
+        'HOST':os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -125,8 +126,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
+SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
+
+STATIC_ROOT = os.path.join(SITE_ROOT, 'collectedstatic')
 
 STATIC_URL = '/static/'
+STATICFILES = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
 
 
