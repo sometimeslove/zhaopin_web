@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'yihang_website.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'djangoblog',
+        'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
         'HOST':os.environ.get('DJANGO_MYSQL_HOST'),
