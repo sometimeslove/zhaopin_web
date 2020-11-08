@@ -1,0 +1,27 @@
+{% load job_tags %}
+{% load cache %}
+<div class="conBox fl">
+    <p class="job clearFixed">
+        {% if  isindex %}
+            <span class="jobTxt fl" href="{{ job.get_absolute_url }}"
+                  rel="bookmark">{{ job.title }}</span>
+        {% else %}
+            <span class="jobTxt fl">{{ job.title }}</span>
+        {% endif %}
+        <span class="time btn fl">[{{ job.pub_time }}发布]</span>
+        <img class="fl" src="../static/img/icon_chat.png" alt=""/>
+        <span class="money fr">{{ job.salary_range }}</span>
+    </p>
+    <p class="btn btn2">经验{{ job.job_experience }}/{{ job.education }}</p>
+    <p class="clearFixed  pBor">
+        <span class="btn fl spa">电商</span>
+        <span class="btn fl spa">移动互联网</span>
+    </p>
+    <div class="imgBox clearFixed">
+        <img src="../static/img/con2.png" class="fl" alt=""/>
+        <div class="imgTxt fl">
+            <p class="txt1">{{ job.company_id }}</p>
+            <p class="txt2">{{ job.category }}/{{ job.job_place }}</p>
+        </div>
+    </div>
+</div>

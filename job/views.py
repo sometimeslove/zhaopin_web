@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class JobListView(ListView):
     # template_name属性用于指定使用哪个模板进行渲染
-    template_name = 'index.html'
+    template_name = 'job/job_index.html'
 
     # context_object_name属性用于给上下文变量取名（在模板中使用该名字）
     context_object_name = 'job_list'
@@ -80,7 +80,7 @@ class JobListView(ListView):
         return value
 
     def get_context_data(self, **kwargs):
-        kwargs['linktype'] = self.link_type
+        # kwargs['linktype'] = self.link_type
         return super(JobListView, self).get_context_data(**kwargs)
 
 
@@ -92,7 +92,7 @@ class IndexView(JobListView):
     link_type = 'i'
 
     def get_queryset_data(self):
-        job_list = Job.objects.filter(job_status='o', pub_status='p')
+        job_list = Job.objects.filter(job_id=1)
         return job_list
 
     def get_queryset_cache_key(self):
@@ -116,9 +116,9 @@ class JobDetailView(DetailView):
         return obj
 
     def get_context_data(self, **kwargs):
-        jobid = int(self.kwargs[self.pk_url_kwarg])
+        # jobid = int(self.kwargs[self.pk_url_kwarg])
         # comment_form = CommentForm()
-        user = self.request.user
+        # user = self.request.user
         # # 如果用户已经登录，则隐藏邮件和用户名输入框
         # if user.is_authenticated and not user.is_anonymous and user.email and user.username:
         #     comment_form.fields.update({
@@ -140,95 +140,95 @@ class JobDetailView(DetailView):
         return super(JobDetailView, self).get_context_data(**kwargs)
 
 
-# class CategoryDetailView(ArticleListView):
-#     '''
-#     分类目录列表
-#     '''
-#     page_type = "分类目录归档"
-#
-#     def get_queryset_data(self):
-#         slug = self.kwargs['category_name']
-#         category = get_object_or_404(Category, slug=slug)
-#
-#         categoryname = category.name
-#         self.categoryname = categoryname
-#         categorynames = list(map(lambda c: c.name, category.get_sub_categorys()))
-#         article_list = Article.objects.filter(category__name__in=categorynames, status='p')
-#         return article_list
-#
-#     def get_queryset_cache_key(self):
-#         slug = self.kwargs['category_name']
-#         category = get_object_or_404(Category, slug=slug)
-#         categoryname = category.name
-#         self.categoryname = categoryname
-#         cache_key = 'category_list_{categoryname}_{page}'.format(categoryname=categoryname, page=self.page_number)
-#         return cache_key
-#
-#     def get_context_data(self, **kwargs):
-#
-#         categoryname = self.categoryname
-#         try:
-#             categoryname = categoryname.split('/')[-1]
-#         except:
-#             pass
-#         kwargs['page_type'] = CategoryDetailView.page_type
-#         kwargs['tag_name'] = categoryname
-#         return super(CategoryDetailView, self).get_context_data(**kwargs)
-#
-#
-# class AuthorDetailView(ArticleListView):
-#     '''
-#     作者详情页
-#     '''
-#     page_type = '作者文章归档'
-#
-#     def get_queryset_cache_key(self):
-#         author_name = self.kwargs['author_name']
-#         cache_key = 'author_{author_name}_{page}'.format(author_name=author_name, page=self.page_number)
-#         return cache_key
-#
-#     def get_queryset_data(self):
-#         author_name = self.kwargs['author_name']
-#         article_list = Article.objects.filter(author__username=author_name, type='a', status='p')
-#         return article_list
-#
-#     def get_context_data(self, **kwargs):
-#         author_name = self.kwargs['author_name']
-#         kwargs['page_type'] = AuthorDetailView.page_type
-#         kwargs['tag_name'] = author_name
-#         return super(AuthorDetailView, self).get_context_data(**kwargs)
-#
-#
-# class TagDetailView(ArticleListView):
-#     '''
-#     标签列表页面
-#     '''
-#     page_type = '分类标签归档'
-#
-#     def get_queryset_data(self):
-#         slug = self.kwargs['tag_name']
-#         tag = get_object_or_404(Tag, slug=slug)
-#         tag_name = tag.name
-#         self.name = tag_name
-#         article_list = Article.objects.filter(tags__name=tag_name, type='a', status='p')
-#         return article_list
-#
-#     def get_queryset_cache_key(self):
-#         slug = self.kwargs['tag_name']
-#         tag = get_object_or_404(Tag, slug=slug)
-#         tag_name = tag.name
-#         self.name = tag_name
-#         cache_key = 'tag_{tag_name}_{page}'.format(tag_name=tag_name, page=self.page_number)
-#         return cache_key
-#
-#     def get_context_data(self, **kwargs):
-#         # tag_name = self.kwargs['tag_name']
-#         tag_name = self.name
-#         kwargs['page_type'] = TagDetailView.page_type
-#         kwargs['tag_name'] = tag_name
-#         return super(TagDetailView, self).get_context_data(**kwargs)
-#
-#
+class CategoryDetailView(JobListView):
+    '''
+    分类目录列表
+    '''
+    page_type = "分类目录归档"
+
+    def get_queryset_data(self):
+        slug = self.kwargs['category']
+        category = get_object_or_404(Category, slug=slug)
+
+        categoryname = category.name
+        self.categoryname = categoryname
+        categorynames = list(map(lambda c: c.name, category.get_sub_categorys()))
+        article_list = Job.objects.filter(category__name__in=categorynames, status='p')
+        return article_list
+
+    def get_queryset_cache_key(self):
+        slug = self.kwargs['category_name']
+        category = get_object_or_404(Category, slug=slug)
+        categoryname = category.name
+        self.categoryname = categoryname
+        cache_key = 'category_list_{categoryname}_{page}'.format(categoryname=categoryname, page=self.page_number)
+        return cache_key
+
+    def get_context_data(self, **kwargs):
+
+        categoryname = self.categoryname
+        try:
+            categoryname = categoryname.split('/')[-1]
+        except:
+            pass
+        kwargs['page_type'] = CategoryDetailView.page_type
+        kwargs['tag_name'] = categoryname
+        return super(CategoryDetailView, self).get_context_data(**kwargs)
+
+
+class AuthorDetailView(JobListView):
+    '''
+    作者详情页
+    '''
+    page_type = '作者文章归档'
+
+    def get_queryset_cache_key(self):
+        author_name = self.kwargs['author_name']
+        cache_key = 'author_{author_name}_{page}'.format(author_name=author_name, page=self.page_number)
+        return cache_key
+
+    def get_queryset_data(self):
+        author_name = self.kwargs['author_name']
+        article_list = Article.objects.filter(author__username=author_name, type='a', status='p')
+        return article_list
+
+    def get_context_data(self, **kwargs):
+        author_name = self.kwargs['author_name']
+        kwargs['page_type'] = AuthorDetailView.page_type
+        kwargs['tag_name'] = author_name
+        return super(AuthorDetailView, self).get_context_data(**kwargs)
+
+
+class TagDetailView(JobListView):
+    '''
+    标签列表页面
+    '''
+    page_type = '分类标签归档'
+
+    def get_queryset_data(self):
+        slug = self.kwargs['tag_name']
+        tag = get_object_or_404(Tag, slug=slug)
+        tag_name = tag.name
+        self.name = tag_name
+        article_list = Article.objects.filter(tags__name=tag_name, type='a', status='p')
+        return article_list
+
+    def get_queryset_cache_key(self):
+        slug = self.kwargs['tag_name']
+        tag = get_object_or_404(Tag, slug=slug)
+        tag_name = tag.name
+        self.name = tag_name
+        cache_key = 'tag_{tag_name}_{page}'.format(tag_name=tag_name, page=self.page_number)
+        return cache_key
+
+    def get_context_data(self, **kwargs):
+        # tag_name = self.kwargs['tag_name']
+        tag_name = self.name
+        kwargs['page_type'] = TagDetailView.page_type
+        kwargs['tag_name'] = tag_name
+        return super(TagDetailView, self).get_context_data(**kwargs)
+
+
 # class ArchivesView(ArticleListView):
 #     '''
 #     文章归档页面

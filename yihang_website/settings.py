@@ -31,16 +31,19 @@ ALLOWED_HOSTS = ['*', '127.0.0.1', 'superstrongz.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'django.contrib.admin.apps.SimpleAdminConfig',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'mdeditor',
     'accounts',
     'job',
     'company',
+    'compressor',
 ]
 
 MIDDLEWARE = [
@@ -84,7 +87,7 @@ DATABASES = {
         'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST':os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
+        'HOST':'192.168.111.130' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -123,11 +126,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+# 允许使用用户名或密码登录
+AUTHENTICATION_BACKENDS = ['accounts.user_login_backend.EmailOrUsernameModelBackend']
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 SITE_ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE_ROOT = os.path.abspath(os.path.join(SITE_ROOT, '../'))
+
+SITE_ID = 1
 
 STATIC_ROOT = os.path.join(SITE_ROOT, 'collectedstatic')
 
@@ -136,7 +143,7 @@ STATICFILES = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
-
+AUTH_USER_MODEL = 'accounts.JobUser'
 
 # 分页
 PAGINATE_BY = 10

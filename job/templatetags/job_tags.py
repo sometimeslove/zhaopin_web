@@ -1,0 +1,158 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+
+"""
+@version: ??
+@author: superstrongz
+@license: MIT Licence
+@contact: 857508399@qq.com
+@site: http://www.superstrongz.com/
+@software: PyCharm
+@file: blog_tags.py
+@time: ??
+"""
+
+from django import template
+from django.db.models import Q
+from django.conf import settings
+from django.template.defaultfilters import stringfilter
+from django.utils.safestring import mark_safe
+import random
+from django.urls import reverse
+from job.models import Job
+from django.utils.encoding import force_text
+from django.shortcuts import get_object_or_404
+import hashlib
+import urllib
+from yihang_website.utils import cache_decorator, cache
+from django.contrib.auth import get_user_model
+from yihang_website.utils import get_current_site
+import logging
+
+logger = logging.getLogger(__name__)
+
+register = template.Library()
+
+
+@register.simple_tag
+def timeformat(data):
+    try:
+        return data.strftime(settings.TIME_FORMAT)
+        # print(data.strftime(settings.TIME_FORMAT))
+        # return "ddd"
+    except Exception as e:
+        logger.error(e)
+        return ""
+
+
+@register.simple_tag
+def datetimeformat(data):
+    try:
+        return data.strftime(settings.DATE_TIME_FORMAT)
+    except Exception as e:
+        logger.error(e)
+        return ""
+
+# 判断该值是否除3后余数等于1
+@register.filter(is_safe=True)
+@stringfilter
+def mod_three_one(num):
+    return int(num)%3==1
+
+# 判断该值是否除3后余数等于1
+@register.filter(is_safe=True)
+@stringfilter
+def mod_three_zero(num):
+    return num%3==0
+
+@register.filter(is_safe=True)
+@stringfilter
+def custom_markdown(content):
+    from yihang_website.utils import CommonMarkdown
+    return mark_safe(CommonMarkdown.get_markdown(content))
+
+
+@register.filter(is_safe=True)
+@stringfilter
+def truncatechars_content(content):
+    """
+    获得文章内容的摘要
+    :param content:
+    :return:
+    """
+    from django.template.defaultfilters import truncatechars_html
+    from DjangoBlog.utils import get_blog_setting
+    blogsetting = get_blog_setting()
+    return truncatechars_html(content, blogsetting.article_sub_length)
+
+
+@register.filter(is_safe=True)
+@stringfilter
+def truncate(content):
+    from django.utils.html import strip_tags
+
+    return strip_tags(content)[:150]
+
+
+
+@register.inclusion_tag('job/tags/job_info.html')
+def load_job_detail(job, isindex, user):
+    """
+    加载职位详情
+    :param job:
+    :param isindex:是否列表页，若是列表页只显示摘要
+    :return:
+    """
+    # from yihang_website.utils import get_blog_setting
+    # blogsetting = get_blog_setting()
+
+    return {
+        'job': job,
+        'isindex': isindex,
+        'user': user,
+        'open_site_comment': "一行招聘",
+        # 'open_site_comment': blogsetting.open_site_comment,
+    }
+
+
+# return only the URL of the gravatar
+# TEMPLATE USE:  {{ email|gravatar_url:150 }}
+@register.filter
+def gravatar_url(email, size=40):
+    """获得gravatar头像"""
+    cachekey = 'gravatat/' + email
+    if cache.get(cachekey):
+        return cache.get(cachekey)
+    else:
+        usermodels = OAuthUser.objects.filter(email=email)
+        if usermodels:
+            o = list(filter(lambda x: x.picture is not None, usermodels))
+            if o:
+                return o[0].picture
+        email = email.encode('utf-8')
+
+        default = "https://resource.lylinux.net/image/2017/03/26/120117.jpg".encode('utf-8')
+
+        url = "https://www.gravatar.com/avatar/%s?%s" % (
+            hashlib.md5(email.lower()).hexdigest(), urllib.parse.urlencode({'d': default, 's': str(size)}))
+        cache.set(cachekey, url, 60 * 60 * 10)
+        return url
+
+
+@register.filter
+def gravatar(email, size=40):
+    """获得gravatar头像"""
+    url = gravatar_url(email, size)
+    return mark_safe('<img src="%s" height="%d" width="%d">' % (url, size, size))
+
+
+@register.simple_tag
+def query(qs, **kwargs):
+    """ template tag which allows queryset filtering. Usage:
+          {% query books author=author as mybooks %}
+          {% for book in mybooks %}
+            ...
+          {% endfor %}
+    """
+    return qs.filter(**kwargs)

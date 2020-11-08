@@ -1,0 +1,112 @@
+[2020-10-31 09:33:32,348] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-10-31 09:40:29,481] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-10-31 09:41:07,851] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-02 21:20:40,603] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-02 21:34:07,879] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-03 22:48:20,014] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 00:01:57,441] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 19:19:53,526] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 19:22:44,994] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 19:24:25,296] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 19:26:26,512] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:35:19,325] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:36:09,530] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:38:30,127] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:40:02,245] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:41:09,484] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:45:05,224] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:45:10,563] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:48:45,841] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 21:58:49,895] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 22:01:52,724] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-04 22:06:02,792] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 17:35:59,114] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 17:40:13,147] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 21:58:55,135] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:04:18,707] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:06:00,727] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:08:39,354] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:20:05,200] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:25:43,041] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:26:02,768] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:27:03,262] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 22:36:19,456] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-05 23:11:11,136] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-06 00:02:39,777] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-06 00:10:59,435] INFO [yihang_website.utils.news:32 utils] cache_decorator set cache:get_current_site key:f5a5c6f34402dc683837f53ff02753fe
+[2020-11-06 00:12:48,282] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-06 00:18:54,951] INFO [yihang_website.utils.news:32 utils] cache_decorator set cache:get_current_site key:d59d11f9d10c78fdf0f936dc9a8a95d6
+[2020-11-06 00:22:43,607] INFO [yihang_website.utils.news:32 utils] cache_decorator set cache:get_current_site key:2fceb182e89bcc5b8ccf9abbf1e53741
+[2020-11-06 00:28:35,764] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:f667bc0b4ed966fa53c841c871bb4425
+[2020-11-06 21:16:26,167] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-06 21:17:22,526] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:eda5fbba5df190b6e621e089d4c95c97
+[2020-11-06 21:23:21,545] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:48ff317eb4ea5fb0c45de9941e98b58c
+[2020-11-06 21:27:40,088] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:38ea6aac3dfb985f0bf8e27ab8dc4f12
+[2020-11-06 21:30:55,113] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:e414a9cded5cd4551a290ad27acfeda2
+[2020-11-06 21:31:28,930] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:735f40f5f249bc457870091c5fcfaf6c
+[2020-11-06 21:37:34,377] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:bca51e291205dbb31c93e8c94a098bd2
+[2020-11-06 21:52:47,086] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:cf22e43d3f657c3052983c6130cf6005
+[2020-11-06 21:57:51,375] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:cf22e43d3f657c3052983c6130cf6005
+[2020-11-06 22:04:00,537] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:a8d705b7fde300cd9791674779906214
+[2020-11-06 23:55:10,569] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:56:29,564] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:58:33,360] WARNING [django.security.csrf.log_response:228 log] Forbidden (CSRF cookie not set.): /admin/job/job/add/
+[2020-11-06 23:58:39,394] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:58:51,909] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:59:08,785] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:59:49,838] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-06 23:59:51,059] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-07 00:00:03,978] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:9a09952af07e300c0685ef4a16c962f0
+[2020-11-07 11:53:26,604] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:91df46152394a3370d1ee50ec6d65211
+[2020-11-07 11:54:04,412] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:91df46152394a3370d1ee50ec6d65211
+[2020-11-07 11:54:58,450] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:6c3a090a7aab03fbd75bdf80bda05fdb
+[2020-11-07 11:56:02,888] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1b55b77ddd4aab49b2a2703dbff5f027
+[2020-11-07 11:56:17,869] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1b55b77ddd4aab49b2a2703dbff5f027
+[2020-11-07 11:56:27,677] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1b55b77ddd4aab49b2a2703dbff5f027
+[2020-11-07 11:56:31,187] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1b55b77ddd4aab49b2a2703dbff5f027
+[2020-11-07 12:22:49,356] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1ffa2ea1a86486ba31c495455a240b7d
+[2020-11-07 12:23:29,409] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:1ffa2ea1a86486ba31c495455a240b7d
+[2020-11-07 12:33:17,987] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:49112f0e9d8c7c6d6337d98dadfad9a0
+[2020-11-07 12:33:44,409] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-07 12:33:55,030] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:49112f0e9d8c7c6d6337d98dadfad9a0
+[2020-11-07 12:35:03,436] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:49112f0e9d8c7c6d6337d98dadfad9a0
+[2020-11-08 15:27:21,465] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 15:30:06,005] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 15:33:43,803] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 15:37:11,093] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 15:52:21,723] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:00:26,688] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:11:19,262] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:22:21,212] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:26:50,680] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:33:14,828] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:37:27,836] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:38:31,692] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:40:13,909] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:41:42,741] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:44:39,201] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:47:05,580] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:49:50,875] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 16:52:48,771] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 17:11:48,019] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 17:12:58,648] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 17:13:56,865] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 19:57:05,852] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 19:58:24,289] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:201fef1534402ce1bdf57ad67dc1504e
+[2020-11-08 20:03:38,627] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:5a86d568a4255eba58b4dcd5ac6e6775
+[2020-11-08 20:15:52,319] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:82a037cd55319390f6eba4a119042f3e
+[2020-11-08 21:02:09,185] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:82a037cd55319390f6eba4a119042f3e
+[2020-11-08 21:43:57,775] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:82a037cd55319390f6eba4a119042f3e
+[2020-11-08 21:44:41,055] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:60fa8ade01ff5d92bc5e66c8fbae7e83
+[2020-11-08 21:44:45,705] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:60fa8ade01ff5d92bc5e66c8fbae7e83
+[2020-11-08 21:46:12,923] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 21:46:43,470] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:60fa8ade01ff5d92bc5e66c8fbae7e83
+[2020-11-08 21:47:08,386] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 22:05:38,900] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:2e43ef71d2eac94cd2c30ec249a77c01
+[2020-11-08 22:32:59,235] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:10c2b981d4d8dbbe4002f28f0a4d598d
+[2020-11-08 22:33:12,883] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-08 22:33:30,032] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:10c2b981d4d8dbbe4002f28f0a4d598d
+[2020-11-08 22:37:51,034] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:d3411d442ded259d01490d982d46bef9
+[2020-11-08 22:39:38,614] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:73dab945bbc5bd1717f3ab02285c8b2a
+[2020-11-08 22:40:16,084] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:4956616c7b33bf58a53710584df6901d
+[2020-11-08 22:41:49,679] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:2598519c207928567f940aa4eedec1d7

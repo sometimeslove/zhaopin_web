@@ -1,0 +1,39 @@
+{% extends 'share_layout/base.html' %}
+{% load job_tags %}
+{% load cache %}
+{% block header %}
+    {% if tag_name %}
+        <title>{{ page_type }}:{{ tag_name }} | {{ SITE_DESCRIPTION }}</title>
+        {% comment %}<meta name="description" content="{{ page_type }}:{{ tag_name }}"/>{% endcomment %}
+    {% else %}
+        <title>{{ SITE_NAME }} | {{ SITE_DESCRIPTION }}</title>
+    {% endif %}
+    <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+    <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:title" content="{{ SITE_NAME }}"/>
+    <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+    <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+    <meta property="og:site_name" content="{{ SITE_NAME }}"/>
+{% endblock %}
+{% block joblist %}
+    <ul class="conUl">
+        {% for job in job_list %}
+            {% if job.job_id|mod_three_one %}
+                <li class="clearFixed">
+            {% endif %}
+            {% load_job_detail job True user %}
+            {% if job.job_id|mod_three_one %}
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+{#{% block sidebar %}#}
+{#    {% with request.user.username|add:linktype as cachekey %}#}
+{#        {% cache 36000 sidebar cachekey %}#}
+{#            {% load_sidebar user linktype %}#}
+{#        {% endcache %}#}
+{#    {% endwith %}#}
+{#{% endblock %}#}

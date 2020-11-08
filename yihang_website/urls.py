@@ -16,9 +16,11 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
+from yihang_website.admin_site import admin_site
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin_site.urls),
+    url(r'mdeditor/', include('mdeditor.urls')),
     url(r'', include('job.urls', namespace='job')),
     # url(r'', include('accounts.urls', namespace='accounts')),
     # url(r'', include('job.urls', namespace='job')),
