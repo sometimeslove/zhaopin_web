@@ -30,7 +30,10 @@ class JobForm(forms.ModelForm):
 
     class Meta:
         model = Job
-        fields = '__all__'
+        fields = (
+         'job_name', 'company_id', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
+     'full_part_flag','pub_status', 'job_status', 'salary_range',
+      'author',  'job_sortorder', 'category')
 
 
 def makr_article_publish(modeladmin, request, queryset):
@@ -61,14 +64,14 @@ class JobAdmin(admin.ModelAdmin):
     form = JobForm
     list_display = (
          'job_name', 'company_id', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
-    'created_time', 'last_mod_time', 'full_part_flag', 'pub_time', 'pub_status', 'job_status', 'salary_range',
-      'author',  'job_sortorder', 'category')
+     'full_part_flag', 'pub_status', 'job_status', 'salary_range',
+      'author',  'job_sortorder', 'category','created_time', 'last_mod_time')
     # , 'full_part_flag'
     # , 'pub_time', 'pub_status', 'job_status', 'salary_range', 'job_sortorder', 'category'
     list_display_links = ( 'job_name',)
     list_filter = ('pub_status','category', 'tags')
     filter_horizontal = ('tags',)
-    # exclude = ('created_time', 'last_mod_time', 'full_part_flag', 'pub_time', 'pub_status', 'job_status', 'salary_range', 'job_sortorder', 'category', 'company_id', 'summary', 'job_body', 'education', 'job_experience', 'job_place')
+    # exclude = ('created_time', 'last_mod_time')
     view_on_site = True
     actions = [makr_article_publish, draft_article, close_article_commentstatus, open_article_commentstatus]
 

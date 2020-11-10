@@ -2,8 +2,7 @@ from django.db import models
 
 # Create your models here.
 from django.urls import reverse
-from mdeditor.fields import MDTextField
-from whoosh.util import now
+from django.utils.timezone import now
 from uuslug import slugify
 from yihang_website.utils import cache_decorator, cache, logger, get_current_site
 from django.conf import settings
@@ -58,7 +57,7 @@ class Job(models.Model):
     job_experience = models.CharField('工作经验', max_length=10, choices=EXPERIENCE_LIST, default='z')
     job_place = models.CharField('工作地点', max_length=20, blank=True)
     full_part_flag = models.CharField('全职/兼职', max_length=10,choices=FULL_PART_FLAG, default='0')
-    pub_time = models.DateTimeField('发布时间', blank=True, null=True)
+    # pub_time = models.DateTimeField('发布时间', blank=True, null=True)
     pub_status = models.CharField('职位发布状态', max_length=1, choices=PUB_CHOICES, default='p')
     job_status = models.CharField('职位招聘状态', max_length=1, choices=JOB_CHOICES, default='o')
     salary_range = models.CharField('职位薪酬范围', max_length=1, choices=SALARY_RANGE, default='z')
@@ -94,7 +93,7 @@ class Job(models.Model):
         return self.job_name
 
     class Meta:
-        ordering = ['-job_sortorder', '-pub_time']
+        ordering = ['-job_sortorder', '-created_time']
         verbose_name = "职位"
         verbose_name_plural = verbose_name
         get_latest_by = 'job_id'

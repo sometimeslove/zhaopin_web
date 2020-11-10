@@ -8,7 +8,7 @@
         {% else %}
             <span class="jobTxt fl">{{ job.title }}</span>
         {% endif %}
-        <span class="time btn fl">[{{ job.pub_time }}发布]</span>
+        <span class="time btn fl">[{{ job.created_time }}发布]</span>
         <img class="fl" src="../static/img/icon_chat.png" alt=""/>
         <span class="money fr">{{ job.salary_range }}</span>
     </p>
