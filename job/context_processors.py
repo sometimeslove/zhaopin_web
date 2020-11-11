@@ -12,7 +12,7 @@
 @file: context_processors.py
 @time: ??
 """
-from .models import Job
+from .models import Job,Category,Job
 from django.conf import settings
 from yihang_website.utils import cache, get_blog_setting
 import logging
@@ -38,7 +38,7 @@ def seo_processor(requests):
             'SITE_BASE_URL': requests.scheme + '://' + requests.get_host() + '/',
             'ARTICLE_SUB_LENGTH': setting.article_sub_length,
             'nav_category_list': Category.objects.all(),
-            'nav_pages': Article.objects.filter(type='p', status='p'),
+            'nav_pages': Job.objects.filter(pub_status='p'),
             'OPEN_SITE_COMMENT': setting.open_site_comment,
             'BEIAN_CODE': setting.beiancode,
             'ANALYTICS_CODE': setting.analyticscode,

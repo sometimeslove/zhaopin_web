@@ -25,6 +25,8 @@ SECRET_KEY = 'h@4mo028u=+(&3-n%mivvf5=1tdao)wi&=ib_e4)(#()&bx-5a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
 ALLOWED_HOSTS = ['*', '127.0.0.1', 'superstrongz.com']
 
 
@@ -70,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'job.context_processors.seo_processor',
             ],
         },
     },
@@ -227,3 +230,5 @@ LOGGING = {
         }
     }
 }
+
+TEMPLATE_DEBUG=True

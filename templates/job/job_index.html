@@ -18,15 +18,11 @@
 {% endblock %}
 {% block joblist %}
     <ul class="conUl">
+    <li class="clearFixed">
         {% for job in job_list %}
-            {% if job.job_id|mod_three_one %}
-                <li class="clearFixed">
-            {% endif %}
             {% load_job_detail job True user %}
-            {% if job.job_id|mod_three_one %}
-                </li>
-            {% endif %}
         {% endfor %}
+    </li>
     </ul>
 
 {% endblock %}

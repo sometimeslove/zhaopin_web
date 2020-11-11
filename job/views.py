@@ -92,7 +92,7 @@ class IndexView(JobListView):
     link_type = 'i'
 
     def get_queryset_data(self):
-        job_list = Job.objects.filter(job_id=1)
+        job_list = Job.objects.filter(pub_status='p')
         return job_list
 
     def get_queryset_cache_key(self):

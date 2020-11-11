@@ -54,7 +54,7 @@ def get_blog_setting():
     if value:
         return value
     else:
-        from .models import JobSettings
+        from job.models import JobSettings
         if not JobSettings.objects.count():
             setting = JobSettings()
             setting.sitename = 'DjangoBlog'
