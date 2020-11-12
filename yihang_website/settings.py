@@ -147,6 +147,8 @@ STATICFILES = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
 AUTH_USER_MODEL = 'accounts.JobUser'
+TAG_MODEL = 'job.Tag'
+COMPANY_MODEL = 'company.Company'
 
 # 分页
 PAGINATE_BY = 10

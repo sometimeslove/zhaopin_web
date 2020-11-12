@@ -31,7 +31,7 @@ class JobForm(forms.ModelForm):
     class Meta:
         model = Job
         fields = (
-         'job_name', 'company_id', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
+         'job_name', 'company', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
      'full_part_flag','pub_status', 'job_status', 'salary_range',
       'author',  'job_sortorder', 'category')
 
@@ -63,7 +63,7 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = ('body', 'job_name')
     form = JobForm
     list_display = (
-         'job_name', 'company_id', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
+         'job_name', 'company', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
      'full_part_flag', 'pub_status', 'job_status', 'salary_range',
       'author',  'job_sortorder', 'category','created_time', 'last_mod_time')
     # , 'full_part_flag'

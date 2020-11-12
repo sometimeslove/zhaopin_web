@@ -7,6 +7,7 @@ from uuslug import slugify
 from yihang_website.utils import cache_decorator, cache, logger, get_current_site
 from django.conf import settings
 from mdeditor.fields import MDTextField
+from django.core.exceptions import ValidationError
 
 
 class Job(models.Model):
@@ -50,7 +51,8 @@ class Job(models.Model):
     )
     job_id = models.AutoField(primary_key=True)
     job_name = models.CharField('标题', max_length=200, unique=True)
-    company_id = models.CharField('公司ID', max_length=20, blank=False)
+    # company_id = models.CharField('公司ID', max_length=20, blank=False)
+    company =models.ForeignKey(settings.COMPANY_MODEL, verbose_name='公司', on_delete=models.CASCADE)
     summary = models.CharField('职位概要', max_length=200, blank=True)
     job_body = MDTextField('正文')
     education = models.CharField('学历要求', max_length=20, choices=EDUCATION_LIST, default='z')

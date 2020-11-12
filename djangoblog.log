@@ -222,3 +222,13 @@
 [2020-11-11 23:23:25,938] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
 [2020-11-11 23:23:26,040] INFO [job.context_processors.seo_processor:29 context_processors] set processor cache.
 [2020-11-11 23:23:26,064] INFO [yihang_website.utils.get_blog_setting:74 utils] set cache get_blog_setting
+[2020-11-12 22:22:26,351] INFO [job.views.get_queryset_from_cache:70 views] set view cache.key:index_1
+[2020-11-12 22:22:26,668] INFO [job.context_processors.seo_processor:29 context_processors] set processor cache.
+[2020-11-12 22:22:26,723] INFO [yihang_website.utils.get_blog_setting:74 utils] set cache get_blog_setting
+[2020-11-12 22:22:52,207] INFO [job.context_processors.seo_processor:29 context_processors] set processor cache.
+[2020-11-12 22:22:52,220] INFO [yihang_website.utils.get_blog_setting:74 utils] set cache get_blog_setting
+[2020-11-12 23:08:34,332] INFO [job.context_processors.seo_processor:29 context_processors] set processor cache.
+[2020-11-12 23:08:34,338] INFO [yihang_website.utils.get_blog_setting:74 utils] set cache get_blog_setting
+[2020-11-12 23:08:37,468] INFO [yihang_website.utils.news:34 utils] cache_decorator set cache:get_current_site key:8f59aeadf2eaab897e50cfc471195f7e
+[2020-11-12 23:08:37,530] INFO [job.context_processors.seo_processor:29 context_processors] set processor cache.
+[2020-11-12 23:08:37,536] INFO [yihang_website.utils.get_blog_setting:74 utils] set cache get_blog_setting
