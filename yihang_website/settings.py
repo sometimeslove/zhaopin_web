@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST':'192.168.111.130' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
+        'HOST':'192.168.111.133' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -118,6 +118,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
+
+TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
+DATE_TIME_FORMAT = '%Y-%m-%d'
 
 LANGUAGE_CODE = 'zh-hans'
 

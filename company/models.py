@@ -52,3 +52,15 @@ class Company(models.Model):
     created_time = models.DateTimeField('创建时间', default=now)
     last_mod_time = models.DateTimeField('修改时间', default=now)
     views = models.PositiveIntegerField('浏览量', default=0)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = ['-company_id', '-created_time']
+        verbose_name = "公司"
+        verbose_name_plural = verbose_name
+        get_latest_by = 'company_id'
+
+    def __str__(self):
+        return self.company_name

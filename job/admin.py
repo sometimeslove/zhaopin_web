@@ -1,5 +1,6 @@
 from django.contrib import admin
 # Register your models here.
+from company.models import Company
 from .models import Job, Category, Tag
 from django import forms
 from django.contrib.auth import get_user_model
@@ -8,21 +9,6 @@ from django.urls import reverse
 from django.utils.html import format_html
 
 
-class ArticleListFilter(admin.SimpleListFilter):
-    title = _("作者")
-    parameter_name = 'author'
-
-    def lookups(self, request, model_admin):
-        authors = list(set(map(lambda x: x.author, Article.objects.all())))
-        for author in authors:
-            yield (author.id, _(author.username))
-
-    def queryset(self, request, queryset):
-        id = self.value()
-        if id:
-            return queryset.filter(author__id__exact=id)
-        else:
-            return queryset
 
 
 class JobForm(forms.ModelForm):
@@ -33,7 +19,7 @@ class JobForm(forms.ModelForm):
         fields = (
          'job_name', 'company', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
      'full_part_flag','pub_status', 'job_status', 'salary_range',
-      'author',  'job_sortorder', 'category')
+      'author',  'job_sortorder', 'category','tags')
 
 
 def makr_article_publish(modeladmin, request, queryset):
@@ -63,9 +49,9 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = ('body', 'job_name')
     form = JobForm
     list_display = (
-         'job_name', 'company', 'summary', 'job_body', 'education', 'job_experience', 'job_place',
+         'job_name', 'company',  'education', 'job_experience', 'job_place',
      'full_part_flag', 'pub_status', 'job_status', 'salary_range',
-      'author',  'job_sortorder', 'category','created_time', 'last_mod_time')
+      'author',  'job_sortorder', 'category')
     # , 'full_part_flag'
     # , 'pub_time', 'pub_status', 'job_status', 'salary_range', 'job_sortorder', 'category'
     list_display_links = ( 'job_name',)
@@ -85,6 +71,7 @@ class JobAdmin(admin.ModelAdmin):
     def get_form(self, request, obj=None, **kwargs):
         form = super(JobAdmin, self).get_form(request, obj, **kwargs)
         form.base_fields['author'].queryset = get_user_model().objects.filter(is_superuser=True)
+        form.base_fields['company'].queryset = Company.objects
         return form
 
     def save_model(self, request, obj, form, change):

@@ -468,19 +468,19 @@
 				border-right:1px solid #999999;
 				margin:0px 6px;
 			}
-			.content .line3{
+			.footer .line3{
 				margin-top:40px;
 			}
-			.content .line3 .btnCon{
+			.footer .line3 .btnCon{
 				font-size:12px;
 				padding-top:30px;
 				color:#99a5c2;
 			}
-			.content .line3 .btnCon a{
+			.footer .line3 .btnCon a{
 				color:#555;
 				margin-right:18px;
 			}
-			.content .line3 .btnCon .openTxt img{
+			.footer .line3 .btnCon .openTxt img{
 				margin-top:4px;
 				margin-left:4px;
 			}

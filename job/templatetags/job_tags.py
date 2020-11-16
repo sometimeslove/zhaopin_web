@@ -20,6 +20,8 @@ from django.template.defaultfilters import stringfilter
 from django.utils.safestring import mark_safe
 import random
 from django.urls import reverse
+
+from company.models import Company
 from job.models import Job
 from django.utils.encoding import force_text
 from django.shortcuts import get_object_or_404
@@ -82,7 +84,7 @@ def truncatechars_content(content):
     :return:
     """
     from django.template.defaultfilters import truncatechars_html
-    from DjangoBlog.utils import get_blog_setting
+    from yihang_website.utils import get_blog_setting
     blogsetting = get_blog_setting()
     return truncatechars_html(content, blogsetting.article_sub_length)
 
@@ -113,6 +115,18 @@ def load_job_detail(job, isindex, user):
         'user': user,
         'open_site_comment': "一行招聘",
         # 'open_site_comment': blogsetting.open_site_comment,
+    }
+
+@register.inclusion_tag('company/tags/company_list.html')
+def load_company_list():
+    """
+    获得文章meta信息
+    :param article:
+    :return:
+    """
+    company_list = Company.objects.filter(state='0')[:8]
+    return {
+        'company_list': company_list
     }
 
 

@@ -189,8 +189,8 @@ class AuthorDetailView(JobListView):
 
     def get_queryset_data(self):
         author_name = self.kwargs['author_name']
-        article_list = Article.objects.filter(author__username=author_name, type='a', status='p')
-        return article_list
+        job_list = Job.objects.filter(author__username=author_name, type='a', status='p')
+        return job_list
 
     def get_context_data(self, **kwargs):
         author_name = self.kwargs['author_name']
@@ -210,8 +210,8 @@ class TagDetailView(JobListView):
         tag = get_object_or_404(Tag, slug=slug)
         tag_name = tag.name
         self.name = tag_name
-        article_list = Article.objects.filter(tags__name=tag_name, type='a', status='p')
-        return article_list
+        job_list = Job.objects.filter(tags__name=tag_name, type='a', status='p')
+        return job_list
 
     def get_queryset_cache_key(self):
         slug = self.kwargs['tag_name']

@@ -17,6 +17,9 @@ from django.contrib.admin import AdminSite
 from django.contrib.sites.admin import SiteAdmin
 from django.contrib.admin.models import LogEntry
 from django.contrib.sites.models import Site
+
+from company.admin import CompanyAdmin
+from company.models import Company
 from job.admin import *
 
 
@@ -46,3 +49,4 @@ admin_site = yihang_websiteAdminSite(name='admin')
 admin_site.register(Job, JobAdmin)
 admin_site.register(Category, CategoryAdmin)
 admin_site.register(Tag, TagAdmin)
+admin_site.register(Company, CompanyAdmin)

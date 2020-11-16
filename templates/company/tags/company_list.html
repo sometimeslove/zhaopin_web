@@ -1,0 +1,47 @@
+{% load job_tags %}
+{% load cache %}
+<div class="line2">
+    <div class="lineTop">
+        <div class="top1">
+            <a href="" class="hotBtn">互联网热门公司榜</a>
+        </div>
+        <div class="top2">
+            <span class="fl">?</span>
+            <a href="" class="fl">在过去的24小时,最多人看过的岗位在这里</a>
+            <a href="" class="fl">我知道了</a>
+        </div>
+    </div>
+    <div class="con2Box clearFixed">
+        {% for company in company_list %}
+            <div class="listBox  fl">
+                <img src="../static/img/con2.png" alt=""/>
+                <span class="spa1">{{ company.company_name }}</span>
+                <p class="txt1">
+                    {% if company.tags.all %}
+                        {% for tag in company.tags.all %}
+                            {{ tag }}
+                        {% endfor %}
+                    {% else %}
+                        数据服务,数据服务
+                    {% endif %}
+                </p>
+                <p class="txt2">{{ company.summary }}</p>
+                <div class="listCon clearFixed">
+                    <div class="box1 fl">
+                        <p>20</p>
+                        面试评价
+                    </div>
+                    <div class="box1 fl">
+                        <p>20</p>
+                        在招职位
+                    </div>
+                    <div class="box1 fl">
+                        <p>20</p>
+                        简历处理率
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <p class="more">查看更多</p>
+</div>
