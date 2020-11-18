@@ -1,10 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>111</title>
-</head>
-<body>
+{% extends 'share_layout/base.html' %}
+{% load job_tags %}
+{% load cache %}
+{% block header %}
+    {% if tag_name %}
+        <title>{{ page_type }}:{{ tag_name }} | {{ SITE_DESCRIPTION }}</title>
+        {% comment %}<meta name="description" content="{{ page_type }}:{{ tag_name }}"/>{% endcomment %}
+    {% else %}
+        <title>{{ SITE_NAME }} | {{ SITE_DESCRIPTION }}</title>
+    {% endif %}
+    <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+    <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:title" content="{{ SITE_NAME }}"/>
+    <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+    <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+    <meta property="og:site_name" content="{{ SITE_NAME }}"/>
+{% endblock %}
+{% block joblist %}
+    <div class="line1">
+        <div class="lineTop">
+            <div class="top1">
+                <a href="" class="hotBtn">24Hour热门</a>
+                <a href="" class="newBtn">最新职位</a>
+            </div>
+            <div class="top2">
+                <span class="fl">?</span>
+                <a href="" class="fl">在过去的24小时,最多人看过的岗位在这里</a>
+                <a href="" class="fl">我知道了</a>
+            </div>
+        </div>
+        <ul class="conUl">
+            <li class="clearFixed">
+                {% for job in job_list %}
+                    {% load_job_detail job True user %}
+                {% endfor %}
+            </li>
+        </ul>
 
-</body>
-</html>
+        <p class="more">查看更多</p>
+    </div>
+{% endblock %}

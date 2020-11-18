@@ -129,6 +129,16 @@ def load_company_list():
         'company_list': company_list
     }
 
+@register.inclusion_tag('job/tags/tag_link.html')
+def load_tag_link():
+    return {
+    }
+
+
+@register.inclusion_tag('share_layout/search.html')
+def load_search():
+    return {
+    }
 
 # return only the URL of the gravatar
 # TEMPLATE USE:  {{ email|gravatar_url:150 }}
