@@ -117,6 +117,20 @@ def load_job_detail(job, isindex, user):
         # 'open_site_comment': blogsetting.open_site_comment,
     }
 
+@register.inclusion_tag('job/tags/joblist_info.html')
+def load_joblist_info(job):
+    """
+    加载职位详情
+    :param job:
+    :param isindex:是否列表页，若是列表页只显示摘要
+    :return:
+    """
+    # from yihang_website.utils import get_blog_setting
+    # blogsetting = get_blog_setting()
+
+    return {
+        'job': job,
+    }
 @register.inclusion_tag('company/tags/company_list.html')
 def load_company_list():
     """

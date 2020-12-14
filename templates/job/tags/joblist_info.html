@@ -3,11 +3,12 @@
 <div class="conBox fl">
     <p class="job clearFixed">
         {% if  isindex %}
-            <a class="jobTxt fl" href="{{ job.get_absolute_url }}">{{job.job_name }}</a>
+            <span class="jobTxt fl" href="{{ job.get_absolute_url }}"
+                  rel="bookmark">{{ job.title }}</span>
         {% else %}
-            <a class="jobTxt fl">{{job.title }}</a>
+            <span class="jobTxt fl">{{ job.title }}</span>
         {% endif %}
-        <span class="time btn fl">[{% datetimeformat job.created_time %}发布]</span>
+        <span class="time btn fl">[{% timeformat job.created_time %}发布]</span>
         <img class="fl" src="../static/img/icon_chat.png" alt=""/>
         <span class="money fr">{{ job.get_salary_range_display }}</span>
     </p>
@@ -23,7 +24,7 @@
         {% endif %}
     </p>
     <div class="imgBox clearFixed">
-        <img href="{{ job.get_absolute_url }}" src="../static/img/con2.png" class="fl" alt=""/>
+        <img src="../static/img/con2.png" class="fl" alt=""/>
         <div class="imgTxt fl">
             <p class="txt1">{{ job.company }}</p>
             <p class="txt2">{{ job.category }}/{{ job.job_place }}</p>

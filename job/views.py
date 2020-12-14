@@ -16,6 +16,7 @@ from yihang_website.utils import cache
 from django.shortcuts import get_object_or_404
 from job.models import Job, Category, Tag
 import logging
+from django.urls import reverse
 
 logger = logging.getLogger(__name__)
 
@@ -138,6 +139,7 @@ class JobDetailView(DetailView):
         # kwargs['prev_article'] = self.object.prev_article
 
         return super(JobDetailView, self).get_context_data(**kwargs)
+
 
 
 class CategoryDetailView(JobListView):

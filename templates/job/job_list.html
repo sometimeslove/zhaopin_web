@@ -18,24 +18,11 @@
 {% endblock %}
 {% load_search %}
 {% block joblist %}
-    <div class="line1">
-        <div class="lineTop">
-            <div class="top1">
-                <a href="" class="hotBtn">24Hour热门</a>
-                <a href="" class="newBtn">最新职位</a>
-            </div>
-            <div class="top2">
-                <span class="fl">?</span>
-                <a href="" class="fl">在过去的24小时,最多人看过的岗位在这里</a>
-                <a href="" class="fl">我知道了</a>
-            </div>
-        </div>
-        <ul class="conUl">
-            <li class="clearFixed">
-                <a href="" class="fl">{{job.job_name }}</a>
-            </li>
-        </ul>
-
-        <p class="more">查看更多</p>
-    </div>
+    <ul class="conUl">
+        <li class="clearFixed">
+            {% for job in job_list %}
+                {% load_joblist_info job %}
+            {% endfor %}
+        </li>
+    </ul>
 {% endblock %}
