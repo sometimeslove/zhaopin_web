@@ -149,6 +149,13 @@ STATICFILES = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS=[os.path.join(BASE_DIR,'static')]
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other
+    'compressor.finders.CompressorFinder',
+)
+
 AUTH_USER_MODEL = 'accounts.JobUser'
 TAG_MODEL = 'job.Tag'
 COMPANY_MODEL = 'company.Company'
