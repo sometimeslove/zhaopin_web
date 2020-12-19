@@ -9,6 +9,7 @@ urlpatterns = [
     path(r'job/<int:year>/<int:month>/<int:day>/<int:job_id>.html',
          views.JobDetailView.as_view(),
          name='detailbyid'),
+    path(r'jobpage/<int:page>/', views.JobListView.as_view(), name='job_page'),
 ]
 if settings.DEBUG:
     # urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

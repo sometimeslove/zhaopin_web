@@ -161,7 +161,7 @@ TAG_MODEL = 'job.Tag'
 COMPANY_MODEL = 'company.Company'
 
 # 分页
-PAGINATE_BY = 10
+PAGINATE_BY =10
 
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 

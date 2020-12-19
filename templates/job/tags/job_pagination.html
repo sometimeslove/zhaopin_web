@@ -1,0 +1,13 @@
+<nav id="nav-below">
+    {% if page_obj.has_next  and next_url%}
+        <div class="nav-previous"><a
+                href="{{ next_url }}"><span
+                class="meta-nav">&larr;</span>上一页</a></div>
+    {% endif %}
+    {% if page_obj.has_previous and previous_url %}
+        <div class="nav-next"><a href="{{ previous_url }}">下一页
+            <span
+                    class="meta-nav">→</span></a>
+        </div>
+    {% endif %}
+</nav>

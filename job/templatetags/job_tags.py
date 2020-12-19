@@ -143,6 +143,52 @@ def load_company_list():
         'company_list': company_list
     }
 
+
+@register.inclusion_tag('job/tags/job_pagination.html')
+def load_pagination_info(page_obj, page_type, tag_name):
+    previous_url = ''
+    next_url = ''
+    if page_type == '':
+        if page_obj.has_next():
+            next_number = page_obj.next_page_number()
+            next_url = reverse('job:job_page', kwargs={'page': next_number})
+        if page_obj.has_previous():
+            previous_number = page_obj.previous_page_number()
+            previous_url = reverse('job:job_page', kwargs={'page': previous_number})
+    # if page_type == '分类标签归档':
+    #     tag = get_object_or_404(Tag, name=tag_name)
+    #     if page_obj.has_next():
+    #         next_number = page_obj.next_page_number()
+    #         next_url = reverse('blog:tag_detail_page', kwargs={'page': next_number, 'tag_name': tag.slug})
+    #     if page_obj.has_previous():
+    #         previous_number = page_obj.previous_page_number()
+    #         previous_url = reverse('blog:tag_detail_page', kwargs={'page': previous_number, 'tag_name': tag.slug})
+    # if page_type == '作者文章归档':
+    #     if page_obj.has_next():
+    #         next_number = page_obj.next_page_number()
+    #         next_url = reverse('blog:author_detail_page', kwargs={'page': next_number, 'author_name': tag_name})
+    #     if page_obj.has_previous():
+    #         previous_number = page_obj.previous_page_number()
+    #         previous_url = reverse('blog:author_detail_page', kwargs={'page': previous_number, 'author_name': tag_name})
+    #
+    # if page_type == '分类目录归档':
+    #     category = get_object_or_404(Category, name=tag_name)
+    #     if page_obj.has_next():
+    #         next_number = page_obj.next_page_number()
+    #         next_url = reverse('blog:category_detail_page',
+    #                            kwargs={'page': next_number, 'category_name': category.slug})
+    #     if page_obj.has_previous():
+    #         previous_number = page_obj.previous_page_number()
+    #         previous_url = reverse('blog:category_detail_page',
+    #                                kwargs={'page': previous_number, 'category_name': category.slug})
+
+    return {
+        'previous_url': previous_url,
+        'next_url': next_url,
+        'page_obj': page_obj
+    }
+
+
 @register.inclusion_tag('job/tags/tag_link.html')
 def load_tag_link():
     return {

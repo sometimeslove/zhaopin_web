@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 class JobListView(ListView):
     # template_name属性用于指定使用哪个模板进行渲染
-    template_name = 'job/job_index.html'
+    template_name = 'job/job_list.html'
 
     # context_object_name属性用于给上下文变量取名（在模板中使用该名字）
     context_object_name = 'job_list'
@@ -43,17 +43,14 @@ class JobListView(ListView):
         page = self.kwargs.get(page_kwarg) or self.request.GET.get(page_kwarg) or 1
         return page
 
-    def get_queryset_cache_key(self):
-        """
-        子类重写.获得queryset的缓存key
-        """
-        raise NotImplementedError()
 
     def get_queryset_data(self):
-        """
-        子类重写.获取queryset的数据
-        """
-        raise NotImplementedError()
+        job_list = Job.objects.filter(pub_status='p')
+        return job_list
+
+    def get_queryset_cache_key(self):
+        cache_key = 'list_{page}'.format(page=self.page_number)
+        return cache_key
 
     def get_queryset_from_cache(self, cache_key):
         '''
@@ -81,7 +78,7 @@ class JobListView(ListView):
         return value
 
     def get_context_data(self, **kwargs):
-        # kwargs['linktype'] = self.link_type
+        kwargs['morejobs'] = reverse('job:job_page', kwargs={'page': 1})
         return super(JobListView, self).get_context_data(**kwargs)
 
 
@@ -92,8 +89,15 @@ class IndexView(JobListView):
     # 友情链接类型
     link_type = 'i'
 
+    # template_name属性用于指定使用哪个模板进行渲染
+    template_name = 'job/job_index.html'
+
+    # context_object_name属性用于给上下文变量取名（在模板中使用该名字）
+    context_object_name = 'job_list'
+
+
     def get_queryset_data(self):
-        job_list = Job.objects.filter(pub_status='p')
+        job_list = Job.objects.filter(pub_status='p')[:6]
         return job_list
 
     def get_queryset_cache_key(self):
