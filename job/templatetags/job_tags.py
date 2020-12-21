@@ -47,6 +47,15 @@ def timeformat(data):
         logger.error(e)
         return ""
 
+@register.simple_tag
+def hourminuteformat(data):
+    try:
+        return data.strftime(settings.HOUR_MINUTE_FORMAT)
+        # print(data.strftime(settings.TIME_FORMAT))
+        # return "ddd"
+    except Exception as e:
+        logger.error(e)
+        return ""
 
 @register.simple_tag
 def datetimeformat(data):

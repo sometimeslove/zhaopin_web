@@ -90,7 +90,7 @@ DATABASES = {
         'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST':'192.168.92.132' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
+        'HOST':'192.168.92.133' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }
@@ -121,6 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 TIME_FORMAT = '%Y-%m-%d %H:%M:%S'
 DATE_TIME_FORMAT = '%Y-%m-%d'
+HOUR_MINUTE_FORMAT = '%H:%M'
 
 LANGUAGE_CODE = 'zh-hans'
 
@@ -161,7 +162,7 @@ TAG_MODEL = 'job.Tag'
 COMPANY_MODEL = 'company.Company'
 
 # 分页
-PAGINATE_BY =10
+PAGINATE_BY =2
 
 TESTING = len(sys.argv) > 1 and sys.argv[1] == 'test'
 

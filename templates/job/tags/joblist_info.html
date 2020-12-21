@@ -1,18 +1,17 @@
 {% load job_tags %}
 {% load cache %}
-<div class="conBox fl">
+<div class="conBox fl joblist">
     <p class="job clearFixed">
-        {% if  isindex %}
-            <span class="jobTxt fl" href="{{ job.get_absolute_url }}"
-                  rel="bookmark">{{ job.title }}</span>
-        {% else %}
-            <span class="jobTxt fl">{{ job.title }}</span>
-        {% endif %}
-        <span class="time btn fl">[{% timeformat job.created_time %}发布]</span>
-        <img class="fl " src="../static/img/icon_chat.png" alt=""/>
-        <span class="money fr">{{ job.get_salary_range_display }}</span>
+
+        <span class="jobTxt" rel="bookmark">
+        <a class="jobTxt fl" href="{{ job.get_absolute_url }}">{{job.job_name }}</a>
+        </span>
+        <span class="time btn fl">[{% hourminuteformat job.created_time %}发布]</span>
+        <img class="fl chat-icon" src="../static/img/icon_chat.png" alt=""/>
     </p>
+    <span class="money fr">{{ job.get_salary_range_display }}</span>
     <p class="btn btn2">经验{{ job.get_job_experience_display }}/{{ job.get_education_display }}</p>
+    <p class="btn btn2">{{ job.company.get_company_scale_display }}/{{ job.company.get_company_finance_display }}/{{ job.company.get_company_class_display }}</p>
     <p class="clearFixed  pBor">
         {% if job.tags.all %}
             {% for tag in job.tags.all %}
@@ -23,11 +22,11 @@
             <span class="btn fl spa">a</span>
         {% endif %}
     </p>
-    <div class="imgBox clearFixed">
+    <div class="company">
+        <p class="txt1">{{ job.company }}</p>
+        <p class="txt2">{{ job.category }}/{{ job.job_place }}</p>
+    </div>
+    <div class="company-logo clearFixed">
         <img src="../static/img/con2.png" class="fl" alt=""/>
-        <div class="imgTxt fl">
-            <p class="txt1">{{ job.company }}</p>
-            <p class="txt2">{{ job.category }}/{{ job.job_place }}</p>
-        </div>
     </div>
 </div>
