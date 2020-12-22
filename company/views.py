@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.urls import reverse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.conf import settings
@@ -8,6 +9,8 @@ from django import forms
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+
+from company.models import Company
 from yihang_website.utils import cache
 from django.shortcuts import get_object_or_404
 from job.models import Job, Category, Tag
@@ -17,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 class CompanyListView(ListView):
     # template_name属性用于指定使用哪个模板进行渲染
-    # template_name = 'job/job_index.html'
+    template_name = 'company/company_view_list.html'
 
     # context_object_name属性用于给上下文变量取名（在模板中使用该名字）
     context_object_name = 'company_list'
@@ -38,16 +41,12 @@ class CompanyListView(ListView):
         return page
 
     def get_queryset_cache_key(self):
-        """
-        子类重写.获得queryset的缓存key
-        """
-        raise NotImplementedError()
+        cache_key = 'company_{page}'.format(page=self.page_number)
+        return cache_key
 
     def get_queryset_data(self):
-        """
-        子类重写.获取queryset的数据
-        """
-        raise NotImplementedError()
+        company_list = Company.objects.all()
+        return company_list
 
     def get_queryset_from_cache(self, cache_key):
         '''
@@ -75,5 +74,5 @@ class CompanyListView(ListView):
         return value
 
     def get_context_data(self, **kwargs):
-        # kwargs['linktype'] = self.link_type
+
         return super(CompanyListView, self).get_context_data(**kwargs)

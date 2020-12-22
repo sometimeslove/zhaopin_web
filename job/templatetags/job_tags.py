@@ -140,16 +140,34 @@ def load_joblist_info(job):
     return {
         'job': job,
     }
-@register.inclusion_tag('company/tags/company_list.html')
+
+@register.inclusion_tag('company/tags/company_info.html')
+def load_companylist_info(company):
+    """
+    加载职位详情
+    :param job:
+    :param isindex:是否列表页，若是列表页只显示摘要
+    :return:
+    """
+    # from yihang_website.utils import get_blog_setting
+    # blogsetting = get_blog_setting()
+
+    return {
+        'company': company,
+    }
+
+@register.inclusion_tag('company/company_index_list.html')
 def load_company_list():
     """
     获得文章meta信息
     :param article:
     :return:
     """
+    morecompanys = reverse('company:company_page', kwargs={'page': 1})
     company_list = Company.objects.filter(state='0')[:8]
     return {
-        'company_list': company_list
+        'company_list': company_list,
+        'morecompanys':morecompanys
     }
 
 

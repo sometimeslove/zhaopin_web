@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin_site.urls),
     url(r'mdeditor/', include('mdeditor.urls')),
     url(r'', include('job.urls', namespace='job')),
+    url(r'', include('company.urls', namespace='company')),
     # url(r'', include('accounts.urls', namespace='accounts')),
     # url(r'', include('job.urls', namespace='job')),
 ]
