@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 
 from django.shortcuts import render
@@ -104,6 +105,17 @@ class IndexView(JobListView):
         cache_key = 'index_{page}'.format(page=self.page_number)
         return cache_key
 
+    # def get_context_data(self, **kwargs):
+    #     job_list = Job.objects.all()
+    #     paginator = Paginator(job_list, 2)
+    #     if pindex == "":  # django中默认返回空值，所以加以判断，并设置默认值为1
+    #         pindex = 1
+    #     else:  # 如果有返回在值，把返回值转为整数型
+    #         int(pindex)
+    #     page = paginator.page(pindex)  # 传递当前页的实例对象到前端
+    #     kwargs['morejobs'] = reverse('job:job_page', kwargs={'page': 1})
+    #     return super(JobListView, self).get_context_data(**kwargs)
+
 
 class JobDetailView(DetailView):
     '''
@@ -117,7 +129,6 @@ class JobDetailView(DetailView):
     def get_object(self, queryset=None):
         obj = super(JobDetailView, self).get_object()
         obj.viewed()
-        self.object = obj
         return obj
 
     def get_context_data(self, **kwargs):

@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% for index in page.paginator.page_range %}
+    {% if index == page.number %}
+        {{ index }}
+    {% else %}
+        <a href="/herolist/{{ index }}">{{ index }}</a>
+    {% endif %}
+ {% endfor %}

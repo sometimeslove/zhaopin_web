@@ -25,5 +25,12 @@
             {% endfor %}
         </li>
     </ul>
-    {% load_pagination_info page_obj page_type tag_name %}
+    {% for item in paginator.page_range %}
+        {% if item == page_obj.number %}
+            {{ item }}
+        {% else %}
+            <a href="/jobpage/{{ item }}">{{ item }}</a>
+        {% endif %}
+     {% endfor %}
+{#    {% load_pagination_info page_obj page_type tag_name %}#}
 {% endblock %}

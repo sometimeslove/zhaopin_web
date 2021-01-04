@@ -14,6 +14,7 @@
 """
 
 from django import template
+from django.core.paginator import Paginator
 from django.db.models import Q
 from django.conf import settings
 from django.template.defaultfilters import stringfilter
@@ -215,27 +216,18 @@ def load_pagination_info(page_obj, page_type, tag_name):
         'page_obj': page_obj
     }
 
-@register.inclusion_tag('job/tags/job_pagination.html')
-def load_pagination_info(pindex):
-    job_list = Job.objects.all()
-    paginator = Paginator(job_list, 2)
-    if pindex == "":  # django中默认返回空值，所以加以判断，并设置默认值为1
-        pindex = 1
-    else:  # 如果有返回在值，把返回值转为整数型
-        int(pindex)
-    page = paginator.page(pindex)  # 传递当前页的实例对象到前端
-    if page_type == '':
-        if page_obj.has_next():
-            next_number = page_obj.next_page_number()
-            next_url = reverse('job:job_page', kwargs={'page': next_number})
-        if page_obj.has_previous():
-            previous_number = page_obj.previous_page_number()
-            previous_url = reverse('job:job_page', kwargs={'page': previous_number})
-    return {
-        'previous_url': previous_url,
-        'next_url': next_url,
-        'page_obj': page_obj
-    }
+# @register.inclusion_tag('job/tags/base_paginator.html')
+# def load_pagination_info(pindex):
+#     job_list = Job.objects.all()
+#     paginator = Paginator(job_list, 2)
+#     if pindex == "":  # django中默认返回空值，所以加以判断，并设置默认值为1
+#         pindex = 1
+#     else:  # 如果有返回在值，把返回值转为整数型
+#         int(pindex)
+#     page = paginator.page(pindex)  # 传递当前页的实例对象到前端
+#     return {
+#         'page': page,
+#     }
 
 @register.inclusion_tag('job/tags/tag_link.html')
 def load_tag_link():

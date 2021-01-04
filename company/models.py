@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.utils.timezone import now
 from django.conf import settings
 
@@ -64,3 +65,7 @@ class Company(models.Model):
 
     def __str__(self):
         return self.company_name
+
+    def get_absolute_url(self):
+        return reverse('company:companybyid', kwargs={
+            'company_id': self.company_id})

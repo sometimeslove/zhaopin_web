@@ -18,19 +18,21 @@
 {% endblock %}
 {% load_search %}
 {% block joblist %}
+    <div class="line1">
+        <ul class="conUl">
+            <li class="clearFixed">
+                <a href="" class="fl">{{company.company_name }}</a>
+                <a href="" class="fl">{{company.get_company_class_display }}</a>
+                <a href="" class="fl">{{company.get_company_finance_display }}</a>
+                <a href="" class="fl">{{company.get_company_scale_display}}</a>
+            </li>
+        </ul>
+    </div>
     <ul class="conUl">
         <li class="clearFixed">
-            {% for company in company_list %}
-                {% load_companylist_info company %}
+            {% for job in job_list %}
+                {% load_joblist_info job %}
             {% endfor %}
         </li>
     </ul>
-    {% for item in paginator.page_range %}
-        {% if item == page_obj.number %}
-            {{ item }}
-        {% else %}
-            <a href="/companypage/{{ item }}">{{ item }}</a>
-        {% endif %}
-     {% endfor %}
-{#    {% load_pagination_info page_obj page_type tag_name %}#}
 {% endblock %}
