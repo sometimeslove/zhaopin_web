@@ -15,7 +15,7 @@
         {% for company in company_list %}
             <div class="listBox  fl">
                 <img src="../static/img/con2.png" alt=""/>
-                <span class="spa1">{{ company.company_name }}</span>
+                <span class="spa1" ><a href="{{ company.get_absolute_url }}">{{ company.company_name }}</a></span>
                 <p class="txt1">
                     {% if company.tags.all %}
                         {% for tag in company.tags.all %}

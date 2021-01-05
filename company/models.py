@@ -68,4 +68,5 @@ class Company(models.Model):
 
     def get_absolute_url(self):
         return reverse('company:companybyid', kwargs={
-            'company_id': self.company_id})
+            'company_id': self.company_id,
+        'page': 1})

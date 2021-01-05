@@ -35,4 +35,11 @@
             {% endfor %}
         </li>
     </ul>
+    {% for item in paginator.page_range %}
+        {% if item == page_obj.number %}
+            {{ item }}
+        {% else %}
+            <a href="/company/{{company.company_id }}/{{ item }}.html">{{ item }}</a>
+        {% endif %}
+     {% endfor %}
 {% endblock %}

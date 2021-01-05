@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
 from company.models import Company
+from job.views import JobListView
 from yihang_website.utils import cache
 from django.shortcuts import get_object_or_404
 from job.models import Job, Category, Tag
@@ -78,40 +79,25 @@ class CompanyListView(ListView):
         return super(CompanyListView, self).get_context_data(**kwargs)
 
 
-class CompanyDetailView(DetailView):
+class CompanyDetailView(JobListView):
     '''
     文章详情页面
     '''
     template_name = 'company/company_detail.html'
-    model = Company
-    pk_url_kwarg = 'company_id'
-    context_object_name = "company"
+    # model = Company
+    # pk_url_kwarg = 'company_id'
+    context_object_name = "job_list"
+    #
+    # def get_object(self, queryset=None):
+    #     obj = super(CompanyDetailView, self).get_object()
+    #     return obj
 
-    def get_object(self, queryset=None):
-        obj = super(CompanyDetailView, self).get_object()
-        return obj
+    def get_queryset_data(self):
+        company_id = self.kwargs['company_id']
+        job_list = Job.objects.filter(company_id=company_id)
+        return job_list
 
     def get_context_data(self, **kwargs):
-        # jobid = int(self.kwargs[self.pk_url_kwarg])
-        # comment_form = CommentForm()
-        # user = self.request.user
-        # # 如果用户已经登录，则隐藏邮件和用户名输入框
-        # if user.is_authenticated and not user.is_anonymous and user.email and user.username:
-        #     comment_form.fields.update({
-        #         'email': forms.CharField(widget=forms.HiddenInput()),
-        #         'name': forms.CharField(widget=forms.HiddenInput()),
-        #     })
-        #     comment_form.fields["email"].initial = user.email
-        #     comment_form.fields["name"].initial = user.username
-        #
-        # article_comments = self.object.comment_list()
-        #
-        # kwargs['form'] = comment_form
-        # kwargs['article_comments'] = article_comments
-        # kwargs['comment_count'] = len(article_comments) if article_comments else 0
-        #
-        # kwargs['next_article'] = self.object.next_article
-        # kwargs['prev_article'] = self.object.prev_article
-        jobs = Job.objects.all()
-        kwargs['job_list'] = jobs
-        return super(CompanyDetailView, self).get_context_data(**kwargs)
+        company_id = self.kwargs['company_id']
+        kwargs['company'] = Company.objects.filter(company_id=company_id).first()
+        return super(JobListView, self).get_context_data(**kwargs)
