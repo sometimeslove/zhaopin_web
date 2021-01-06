@@ -41,7 +41,7 @@ class LogoutView(RedirectView):
         return super(LogoutView, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        from DjangoBlog.utils import cache
+        from yihang_website.utils import cache
         cache.clear()
         logout(request)
         return super(LogoutView, self).get(request, *args, **kwargs)
@@ -72,7 +72,7 @@ class LoginView(FormView):
         form = AuthenticationForm(data=self.request.POST, request=self.request)
 
         if form.is_valid():
-            from DjangoBlog.utils import cache
+            from yihang_website.utils import cache
             if cache and cache is not None:
                 cache.clear()
             logger.info(self.redirect_field_name)
