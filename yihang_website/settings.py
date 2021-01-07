@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'mdeditor',
+    'haystack',
     'accounts',
     'job',
     'company',
@@ -115,6 +116,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'yihang_website.whoosh_cn_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+# 自动更新搜索索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
