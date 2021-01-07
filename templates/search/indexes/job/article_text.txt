@@ -1,0 +1,3 @@
+{{ object.job_name }}
+{{ object.author.username }}
+{{ object.company.company_name }}

@@ -13,15 +13,16 @@
 @time: ??
 """
 from haystack import indexes
-from Job.models import Job
+from job.models import Job
 
 
 class JobIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     author = indexes.CharField(model_attr='author')
+    company = indexes.CharField(model_attr='company')
 
     def get_model(self):
         return Job
 
     def index_queryset(self, using=None):
-        return self.get_model().objects.filter(status='p')
+        return self.get_model().objects.all()

@@ -235,7 +235,7 @@ def load_tag_link():
     }
 
 
-@register.inclusion_tag('share_layout/search.html')
+@register.inclusion_tag('share_layout/search_block.html')
 def load_search():
     return {
     }

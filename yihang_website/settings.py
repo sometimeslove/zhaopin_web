@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'zhaopinsite',
         'USER': os.environ.get('DJANGO_MYSQL_USER'),
         'PASSWORD': os.environ.get('DJANGO_MYSQL_PASSWORD'),
-        'HOST':'192.168.111.139' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
+        'HOST':'192.168.92.133' or os.environ.get('DJANGO_MYSQL_HOST') or '192.168.92.132',
         'PORT': 3306,
         'OPTIONS': {'charset': 'utf8mb4'},
     }

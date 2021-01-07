@@ -1,0 +1,48 @@
+{% extends 'share_layout/base.html' %}
+{% load job_tags %}
+{% load cache %}
+{% block header %}
+    {% if tag_name %}
+        <title>{{ page_type }}:{{ tag_name }} | {{ SITE_DESCRIPTION }}</title>
+        {% comment %}<meta name="description" content="{{ page_type }}:{{ tag_name }}"/>{% endcomment %}
+    {% else %}
+        <title>{{ SITE_NAME }} | {{ SITE_DESCRIPTION }}</title>
+    {% endif %}
+    <meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+    <meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+    <meta property="og:type" content="blog"/>
+    <meta property="og:title" content="{{ SITE_NAME }}"/>
+    <meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+    <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+    <meta property="og:site_name" content="{{ SITE_NAME }}"/>
+{% endblock %}
+
+{% block joblist %}
+    {% load_search %}
+
+    {% if query %}
+        <header class="archive-header">
+            <h2 class="archive-title"> 搜索：<span style="color: red">{{ query }}</span></h2>
+        </header><!-- .archive-header -->
+    {% endif %}
+    {% if query and page.object_list %}
+        <ul class="conUl">
+            <li class="clearFixed">
+                {% for job in page.object_list %}
+                    {% load_joblist_info job %}
+                {% endfor %}
+            </li>
+        </ul>
+        {% for item in paginator.page_range %}
+            {% if item == page_obj.number %}
+                {{ item }}
+            {% else %}
+                <a href="/jobpage/{{ item }}">{{ item }}</a>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <header class="archive-header">
+            <h1 class="archive-title">哎呀，关键字：<span>{{ query }}</span>没有找到结果，要不换个词再试试？</h1>
+        </header><!-- .archive-header -->
+    {% endif %}
+{% endblock %}
