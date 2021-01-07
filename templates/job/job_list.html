@@ -16,8 +16,9 @@
     <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
     <meta property="og:site_name" content="{{ SITE_NAME }}"/>
 {% endblock %}
-{% load_search %}
+
 {% block joblist %}
+    {% load_search %}
     <ul class="conUl">
         <li class="clearFixed">
             {% for job in job_list %}

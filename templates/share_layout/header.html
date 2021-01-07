@@ -1,0 +1,59 @@
+{% load job_tags %}
+{% load cache %}
+<div class="header">
+        <div class="h_top">
+            <div class="topCon mian clearFixed">
+                <div class="conLeft fl">
+                    <div class="leftTxt1 fl">
+                        <a href="" class="logo">{{ SITE_NAME }}</a>
+                        <a href="" class="city">全国站</a>
+                        <a href="" class="city1">[切换城市]</a>
+                    </div>
+                    <ul class="ulList clearFixed fl">
+                        <li><a href="#">首页</a></li>
+                        <li><a href="#">公司</a></li>
+                        <li><a href="#">校园</a></li>
+                        <li><a href="#">言职</a></li>
+                        <li><a href="#">课程</a></li>
+                    </ul>
+                </div>
+                <div class="conRight fr">
+                    <ul class="ulList clearFixed">
+                        {% if user.is_authenticated %}
+                            <li><a href="{{ SITE_BASE_URL }}admin/" class="login btn" rel="nofollow">{{ user.username }}   </a>
+                            </li>
+                            <li><a href="{% url "accounts:logout" %}" class="login2" rel="nofollow"><span>|</span>退出登录</a>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url "accounts:login" %}" class="login btn" rel="nofollow">登录</a>
+                        {% endif %}
+                        {#                        <li><a href="" class="login btn"><span></span>登录</a></li>#}
+                        {#                        <li><a href="" class="login2"><span>|</span>注册</a></li>#}
+                        <li><a href="" class="btn app"><span></span>拉钩APP</a></li>
+                        <li><a href="demo.html" target="_blank">进入企业版</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="h_bottom">
+            <div class="botCon mian">
+                <div class="conLeft fl">
+                    <div class="imgBox">
+                        <img src="../static/img/footer_lagou.png" alt=""/>
+                    </div>
+                    <div class="txtBox">7555585家公司|67676767个职位在拉钩等你</div>
+                </div>
+                <div class="conRight fr">
+                    <div class="btnBox">
+                        <input type="text" placeholder="输入手机号" class="fl txt1"/>
+                        <p class="fl pBtn">
+                            <input type="text" placeholder="验证码" class="txt2"/>
+                            |
+                            <a href="" class="aTxt2">获取</a>
+                        </p>
+                        <input type="submit" value="登录/注册" class="fl btnSub"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

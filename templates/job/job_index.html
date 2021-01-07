@@ -1,6 +1,7 @@
 {% extends 'share_layout/base.html' %}
 {% load job_tags %}
 {% load cache %}
+
 {% block header %}
     {% if tag_name %}
         <title>{{ page_type }}:{{ tag_name }} | {{ SITE_DESCRIPTION }}</title>
@@ -16,8 +17,9 @@
     <meta property="og:url" content="{{ SITE_BASE_URL }}"/>
     <meta property="og:site_name" content="{{ SITE_NAME }}"/>
 {% endblock %}
-{% load_search %}
+
 {% block joblist %}
+    {% load_search %}
     {% load_tag_link %}
     <div class="line1">
         <div class="lineTop">
