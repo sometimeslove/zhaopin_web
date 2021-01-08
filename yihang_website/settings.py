@@ -125,6 +125,7 @@ HAYSTACK_CONNECTIONS = {
 }
 # 自动更新搜索索引
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 3
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

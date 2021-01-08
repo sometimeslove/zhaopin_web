@@ -236,8 +236,9 @@ def load_tag_link():
 
 
 @register.inclusion_tag('share_layout/search_block.html')
-def load_search():
+def load_search(query=''):
     return {
+        'query': query
     }
 
 # return only the URL of the gravatar

@@ -18,8 +18,8 @@ from job.models import Job
 
 class JobIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
-    author = indexes.CharField(model_attr='author')
-    company = indexes.CharField(model_attr='company')
+    # author = indexes.CharField(model_attr='author')
+    # company = indexes.CharField(model_attr='company')
 
     def get_model(self):
         return Job

@@ -18,7 +18,7 @@
 {% endblock %}
 
 {% block joblist %}
-    {% load_search %}
+    {% load_search query%}
 
     {% if query %}
         <header class="archive-header">
@@ -29,15 +29,15 @@
         <ul class="conUl">
             <li class="clearFixed">
                 {% for job in page.object_list %}
-                    {% load_joblist_info job %}
+                    {% load_joblist_info job.object %}
                 {% endfor %}
             </li>
         </ul>
         {% for item in paginator.page_range %}
-            {% if item == page_obj.number %}
+            {% if item == page.number %}
                 {{ item }}
             {% else %}
-                <a href="/jobpage/{{ item }}">{{ item }}</a>
+                <a href="/search?q={{ query }}&amp;page={{ item }}">{{ item }}</a>
             {% endif %}
         {% endfor %}
     {% else %}
