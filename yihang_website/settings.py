@@ -144,8 +144,22 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # 允许使用用户名或密码登录
 AUTHENTICATION_BACKENDS = ['accounts.user_login_backend.EmailOrUsernameModelBackend']
+
+# Emial:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
+
+EMAIL_HOST = 'smtp.qq.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')
+EMAIL_HOST_PASSWORD = "ssidlnxbmneqbbeh"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/

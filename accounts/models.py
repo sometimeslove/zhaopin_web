@@ -30,5 +30,5 @@ class JobUser(AbstractUser):
     def email_user(self, subject, message, from_email=None, **kwargs):
         """Send an email to this user."""
         from_email = settings.DEFAULT_FROM_EMAIL
-        super(BlogUser, self).email_user(subject, message, from_email, **kwargs)
+        super(JobUser, self).email_user(subject, message, from_email, **kwargs)
         # send_mail(subject, message, from_email, [self.email], **kwargs)

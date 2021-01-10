@@ -28,24 +28,20 @@ class LoginForm(AuthenticationForm):
 
 
 class RegisterForm(UserCreationForm):
-    # home_address = forms.CharField(
-    #     label="家庭地址",
-    #     strip=False,
-    #     widget=widgets.TextInput(attrs={'placeholder': "家庭地址", "class": "form-control"}))
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
 
+
         self.fields['username'].widget = widgets.TextInput(attrs={'placeholder': "用户名", "class": "form-control"})
         self.fields['email'].widget = widgets.EmailInput(attrs={'placeholder': "邮箱", "class": "form-control"})
-        # self.fields['password1'].widget = widgets.PasswordInput(
-        #     attrs={'placeholder': "请输入密码", "class": "form-control"})
-        # self.fields['password2'].widget = widgets.PasswordInput(
-        #     attrs={'placeholder': "请再次输入密码", "class": "form-control"})
-        self.fields['home_address'].widget = widgets.TextInput(attrs={'placeholder': "家庭地址", "class": "form-control"})
-        self.fields['home_address'].widget = widgets.TextInput(attrs={'placeholder': "家庭地址", "class": "form-control"})
+        self.fields['nickname'].widget = widgets.TextInput(attrs={'placeholder': "昵称", "class": "form-control"})
+        self.fields['password1'].widget = widgets.PasswordInput(
+            attrs={'placeholder': "请输入密码", "class": "form-control"})
+        self.fields['password2'].widget = widgets.PasswordInput(
+            attrs={'placeholder': "请再次输入密码", "class": "form-control"})
 
 
     class Meta:
         model = get_user_model()
-        fields = ("username", "email","home_address","nickname")
+        fields = ("username", "email","nickname","password1","password2")
         # exclude = []
